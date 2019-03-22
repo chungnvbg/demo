@@ -15,8 +15,14 @@ class Add implements Operrator{
 }
 class Divide implements operator (float $number1 ,float $number2){
 	public function operate(float $number1 ,float $number2){
-	if($number2===0){
-	throw new Exception ("Erorr");	
+		try {if($number2===0){
+			throw new Exception ("Erorr");	
+	
+	}catch (Exception $e){
+	echo $e ->getMessage();
+	}
+	
+	
 	} else {
 	return $number1 + $number2;
 	}
@@ -25,12 +31,8 @@ class Divide implements operator (float $number1 ,float $number2){
 }
 	$calculator =new calculator;
 	echo $calculator ->calculate(new Add(),2,2)."<br>";
-	try {
-	echo $calculator->calculate(new Divide()5,2);
-	}catch (Exception $e){
-	echo $e ->getMessage();
-	}
-
+	
+echo $calculator->calculate(new Divide()5,2);
 
 
 
